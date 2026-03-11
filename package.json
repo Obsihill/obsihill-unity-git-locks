@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "Git Locks",
   "description": "An editor tool to manipulate git LFS locks",
-  "unity": "2021.3",
+  "unity": "6000.3",
   "keywords": [
     "unity",
     "git",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/obsihill/unity-git-locks.git"
+    "url": "https://github.com/Obsihill/obsihill-unity-git-locks"
   },
   "license": "MIT",
   "dependencies": {
