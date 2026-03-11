@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd"
+>
+    <!-- UXML for GitLocksWindow -->
+    <engine:ScrollView class="main-container">
+        <!-- Disabled State Message -->
+        <engine:VisualElement name="disabled-container" style="display: none;">
+            <engine:Label text="Tool disabled" class="word-wrap" />
+            <engine:Button name="enable-btn" text="Enable in preferences" />
+        </engine:VisualElement>
+
+        <!-- Setup Username State Message -->
+        <engine:VisualElement name="setup-container" style="display: none;">
+            <engine:Label text="You need to setup your Git LFS host username for the tool to work properly." class="word-wrap" />
+            <engine:VisualElement class="row">
+                <engine:Button name="setup-prefs-btn" text="Setup username in preferences" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+
+        <!-- Main Tool State -->
+        <engine:VisualElement name="main-tool-container">
+            <!-- Header -->
+            <engine:VisualElement class="header-row">
+                <engine:Label name="refresh-time-label" text="Last refresh time : " />
+                <engine:Label name="auto-refresh-label" text="Auto refresh every X minutes" class="disabled-text" />
+                <engine:Button name="open-settings-btn" text="Setup" />
+            </engine:VisualElement>
+            
+            <engine:Button name="refresh-locks-btn" text="Refresh Git LFS locks" class="big-btn" />
+            
+            <engine:VisualElement class="divider" />
+            
+            <!-- Lock Action -->
+            <engine:VisualElement class="row">
+                <engine:Label text="Lock an asset :" />
+                <editor:ObjectField name="lock-object-field" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; min-width: 100px;" />
+                <engine:Button name="lock-asset-btn" text="Lock" />
+            </engine:VisualElement>
+            
+            <engine:VisualElement class="divider" />
+            
+            <!-- My Locks -->
+            <engine:VisualElement class="locks-section" style="flex-grow: 1;">
+                <engine:VisualElement class="row section-header">
+                    <engine:Label text="My locks" class="bold-text" />
+                    <engine:VisualElement style="flex-grow: 1;" />
+                    <engine:Toggle name="select-all-toggle" label="All" style="flex-direction: row-reverse;" />
+                    <engine:Button name="unlock-selected-btn" text="Unlock selected" style="width: 120px;" />
+                </engine:VisualElement>
+                
+                <engine:ScrollView name="my-locks-list" class="locks-list" />
+            </engine:VisualElement>
+            
+            <engine:VisualElement class="divider" />
+            
+            <!-- Other Locks -->
+            <engine:VisualElement class="locks-section" style="flex-grow: 2;">
+                <engine:VisualElement class="row section-header">
+                    <engine:Label text="Other locks" class="bold-text" />
+                </engine:VisualElement>
+                
+                <engine:ScrollView name="other-locks-list" class="locks-list" />
+            </engine:VisualElement>
+
+        </engine:VisualElement>
+    </engine:ScrollView>
+</engine:UXML>

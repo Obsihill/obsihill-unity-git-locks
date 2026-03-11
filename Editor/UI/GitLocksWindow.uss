@@ -1,0 +1,117 @@
+.main-container {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.word-wrap {
+    white-space: normal;
+    margin-bottom: 10px;
+}
+
+.disabled-text {
+    opacity: 0.5;
+}
+
+.big-btn {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.divider {
+    height: 2px;
+    background-color: rgb(128, 128, 128);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.bold-text {
+    -unity-font-style: bold;
+    font-size: 14px;
+}
+
+.section-header {
+    margin-bottom: 5px;
+}
+
+.locks-section {
+    flex-grow: 1;
+    min-height: 100px;
+}
+
+.locks-list {
+    flex-grow: 1;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    min-height: 150px;
+}
+
+/* Item styling */
+.lock-item {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 100%;
+}
+
+.lock-item-toggle {
+    margin-right: 2px;
+}
+
+.lock-item-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    background-color: transparent;
+    border-width: 0;
+}
+
+.lock-item-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lock-item-object {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+.lock-item-path {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-right: 5px;
+    -unity-text-align: middle-left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lock-item-owner {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-right: 5px;
+    -unity-text-align: middle-left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lock-item-btn {
+    width: 65px;
+}
+
+.lock-item-force-btn {
+    width: 95px;
+}
