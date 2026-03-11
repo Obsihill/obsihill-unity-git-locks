@@ -1,9 +1,7 @@
 {
     "name": "com.obsihill.git-locks.Editor",
     "rootNamespace": "",
-    "references": [
-        "com.obsihill.git-locks"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],

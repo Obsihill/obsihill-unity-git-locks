@@ -25,6 +25,26 @@ public class GitLocksDisplay : EditorWindow
     private VisualElement disabledContainer;
     private VisualElement setupContainer;
     private VisualElement mainToolContainer;
+    
+    private static string editorFolderPath;
+    private static string EditorFolderPath
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(editorFolderPath))
+            {
+                string[] guids = AssetDatabase.FindAssets("GitLocksDisplay t:Script");
+                if (guids.Length > 0)
+                {
+                    string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                    // path is ".../Editor/Scripts/GitLocksDisplay.cs"
+                    // Get to ".../Editor"
+                    editorFolderPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(path)).Replace("\\", "/");
+                }
+            }
+            return editorFolderPath;
+        }
+    }
 
     // Show git history
     private static readonly int showHistoryMaxNumOfFilesBeforeWarning = 5;
@@ -716,10 +736,7 @@ public class GitLocksDisplay : EditorWindow
 
     private static Texture LoadIcon(string filename)
     {
-        Texture tex = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.tomduchene.unity-git-locks/Editor/Textures/" + filename, typeof(Texture));
-        if (tex == null)
-            tex = (Texture)AssetDatabase.LoadAssetAtPath("Assets/unity-git-locks-main/Editor/Textures/" + filename, typeof(Texture));
-        return tex;
+        return (Texture)AssetDatabase.LoadAssetAtPath(EditorFolderPath + "/Textures/" + filename, typeof(Texture));
     }
 
     private static Texture GetGreenLockIcon(bool forceReload = false)
@@ -779,16 +796,12 @@ public class GitLocksDisplay : EditorWindow
 
         VisualElement root = rootVisualElement;
         
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.tomduchene.unity-git-locks/Editor/UI/GitLocksWindow.uxml");
-        if (visualTree == null)
-            visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/unity-git-locks-main/Editor/UI/GitLocksWindow.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(EditorFolderPath + "/UI/GitLocksWindow.uxml");
         
         if (visualTree != null)
         {
             visualTree.CloneTree(root);
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/com.tomduchene.unity-git-locks/Editor/UI/GitLocksWindow.uss");
-            if (styleSheet == null)
-                styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/unity-git-locks-main/Editor/UI/GitLocksWindow.uss");
+            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(EditorFolderPath + "/UI/GitLocksWindow.uss");
             if (styleSheet != null)
                 root.styleSheets.Add(styleSheet);
         }
