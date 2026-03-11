@@ -15,7 +15,7 @@ You can install this package directly from GitHub using the Unity Package Manage
 3. Select **"Add package from git URL..."**
 4. Paste the following URL and click **Add**:
    ```text
-   https://github.com/Obsihill/unity-git-locks.git
+   https://github.com/Obsihill/obsihill-unity-git-locks
    ```
 
 ### Usage
@@ -38,7 +38,7 @@ Unity Package Manager (UPM)를 통해 GitHub URL로 패키지를 쉽게 설치�
 3. **"Add package from git URL..."** 을 선택합니다.
 4. 아래 URL을 복사하여 붙여넣고 **Add** 버튼을 누릅니다:
    ```text
-   https://github.com/Obsihill/unity-git-locks.git
+   https://github.com/Obsihill/obsihill-unity-git-locks
    ```
 
 ### 사용 가이드
